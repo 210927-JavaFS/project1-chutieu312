@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+<hibernate-configuration>
+
+	<session-factory>
+		<!-- JDBC -->
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">password</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://javafs-210927.c0xvmvzml4y6.us-east-2.rds.amazonaws.com:5432/demo</property>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<!-- Hibernate Properties -->
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.default_schema">reimbursement</property>
+		<!-- Optional -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<!-- DDL Permission level -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- Mapping Entity Classes (Making the SF aware of these entities) -->
+
+		
+	</session-factory>
+
+</hibernate-configuration>

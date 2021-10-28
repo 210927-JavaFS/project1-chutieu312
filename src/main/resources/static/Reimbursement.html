@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Reimbursement System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="container-fluid">
+  <div class="formClass">
+    <form class="form-control">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+    </form>
+    <button class="btn btn-danger" id="loginButton">Login</button>
+  </div>
+  <div class="row" id="buttonRow">
+
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-sm-1">User ID</th>
+        <th class="col-sm-2">Username</th>
+        <th class="col-sm-2">Password</th>
+        <th class="col-sm-1">First Name</th>
+        <th class="col-sm-1">Last Name</th>
+        <th class="col-sm-2">Email</th>
+        <th class="col-sm-6">Role ID</th>
+      </tr>
+    </thead>
+    <tbody id="userBody">
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-sm-2">Reimb ID</th>
+        <th class="col-sm-2">Amount</th>
+        <th class="col-sm-2">Submitted</th>
+        <th class="col-sm-2">Resolved</th>
+        <th class="col-sm-2">Description</th>
+        <th class="col-sm-1">Receipt</th>
+        <th class="col-sm-1">Author</th>
+        <th class="col-sm-1">Resolver</th>
+        <th class="col-sm-1">Status ID</th>
+        <th class="col-sm-1">Type ID</th>
+      </tr>
+    </thead>
+    <tbody id="reimbBody">
+    </tbody>
+  </table>
+
+  <br>
+  <br>
+
+  <form class="form-control">
+    <label for="reimbAmount">Reimb Amount</label>
+    <input type="text" id="reimbAmount" name="reimbAmount">
+    
+    <label for="reimbSubmitted">Submitted</label>
+    <input type="text" id="reimbSubmitted" name="reimbSubmitted">
+    
+    <label for="reimbResolved">Resolved</label>
+    <input type="text" id="reimbResolved" name="reimbResolved">
+    
+    <label for="reimbDescription">Description</label>
+    <input type="text" id="reimbDescription" name="reimbDescription">
+    
+    <label for="reimbReceipt">Receipt</label>
+    <input type="text" id="reimbReceipt" name="reimbReceipt">
+    
+    <label for="reimbAuthor">Author</label>
+    <input type="text" id="reimbAuthor" name="reimbAuthor">
+    
+    <label for="reimbResolver">Resolver</label>
+    <input type="text" id="reimbResolver" name="reimbResolver">
+    
+    <label for="reimbStatusID">Status ID</label>
+    <input type="text" id="reimbStatusID" name="reimbStatusID">
+    
+    <label for="reimbTypeID">Type ID</label>
+    <input type="text" id="reimbTypeID" name="reimbTypeID">
+    
+  </form>
+  <button class="btn btn-primary" id="addReimbButton">Add Reimbursement</button>
+
+  <script src="Reimbursement.js"></script>
+</body>
+</html>

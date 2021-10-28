@@ -1,0 +1,10 @@
+{
+    "amount": 100,
+    "description": "food",
+    "receipt": "banana",
+    "authorId": 1,
+    "resolverId": 1,
+    "statusId": 1,
+    "typeId": 1
+
+}
