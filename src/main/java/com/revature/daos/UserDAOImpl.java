@@ -30,11 +30,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean addUser(User User) {
+	public boolean addUser(User user) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
-			session.save(User);
+			session.save(user);
 			tx.commit();
 			HibernateUtil.closeSession();
 			return true;
@@ -45,11 +45,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean updateUser(User User) {
+	public boolean updateUser(User user) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
-			session.merge(User);
+			session.merge(user);
 			tx.commit();
 			HibernateUtil.closeSession();
 			return true;
@@ -60,11 +60,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean deleteUser(User User) {
+	public boolean deleteUser(User user) {
 		try {
 			Session session = HibernateUtil.getSession();
 			Transaction tx = session.beginTransaction();
-			session.delete(User);
+			session.delete(user);
 			tx.commit();
 			HibernateUtil.closeSession();
 			return true;

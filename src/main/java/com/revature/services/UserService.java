@@ -15,25 +15,25 @@ public class UserService {
 	}
 
 	public User getUser(int id) {
-		User User = UserDao.findById(id);
-		if (User != null) {
-			return User;
+		User user = UserDao.findById(id);
+		if (user != null) {
+			return user;
 		}else {
 			return new User();
 		}
 	}
 	
-	public boolean addUser(User User) {
-		return UserDao.addUser(User);
+	public boolean addUser(User user) {
+		return UserDao.addUser(user);
 	}
 	
-	public boolean updateUser(User User) {
-		return UserDao.updateUser(User);
+	public boolean updateUser(User user) {
+		return UserDao.updateUser(user);
 	}
 	
 	public boolean deleteUser(int id) {
-		User User = getUser(id);
-		return UserDao.deleteUser(User);
+		User user = getUser(id);
+		return UserDao.deleteUser(user);
 	}
 	
 }
