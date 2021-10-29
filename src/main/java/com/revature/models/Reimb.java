@@ -33,11 +33,11 @@ public class Reimb {
 	@JoinColumn(name="resolverId")	
     private int resolverId;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="statusId")	
     private int statusId;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="typeId")	
     private int typeId;
 
@@ -68,10 +68,21 @@ public class Reimb {
 		this.typeId = typeId;
 	}
 
+	
+	
 	public Reimb() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+public Reimb(double amount, String description, String receipt, int authorId, int typeId) {
+		super();
+		this.amount = amount;
+		this.description = description;
+		this.receipt = receipt;
+		this.authorId = authorId;
+		this.typeId = typeId;
+	}
+
 
 	public int getReimbId() {
 		return reimbId;
