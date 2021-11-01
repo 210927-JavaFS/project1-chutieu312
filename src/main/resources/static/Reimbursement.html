@@ -63,11 +63,11 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="col-sm-2">Reimb ID</th>
-          <th class="col-sm-2">Amount</th>
+          <th class="col-sm-1">Reimb ID</th>
+          <th class="col-sm-1">Amount</th>
           <th class="col-sm-2">Submitted</th>
           <th class="col-sm-2">Resolved</th>
-          <th class="col-sm-2">Description</th>
+          <th class="col-sm-1">Description</th>
           <th class="col-sm-1">Receipt</th>
           <th class="col-sm-1">Author</th>
           <th class="col-sm-1">Resolver</th>
@@ -80,7 +80,7 @@
     </table>
   </div>
   <br>
-  <br>
+  
   <!-- ========================================================================= -->
   <div id="addReimb" style="display: none"> 
     <h5 style="color: darkorchid">Please enter your new reimbursement information.</h5>
@@ -106,9 +106,23 @@
   </div>
   <!-- ========================================================================= -->
   <br>
+  <div id="filterReimb" style="display: none">
+    <h5 style="color: darkorchid">Filter: Please choose a status.</h5>
+    <form class="form-control">
+      <label for="filterStatus">Choose a Status: </label>
+      <select name="filterStatus" id="filterStatus">
+        <option value="Pending">Pending</option>
+        <option value="Approved">Approved</option>
+        <option value="Denied">Denied</option>
+      </select>
+    </form>
+    <button class="btn btn-primary" id="filterReimbButton">Filter</button>
+  </div>
+
+  <!-- ========================================================================= -->
   <br>
   <div id="updateReimb" style="display: none">
-    <h5 style="color: darkorchid">Please enter Reimb ID and choose a status.</h5>
+    <h5 style="color: darkorchid">Approve/Deny: Please enter Reimb ID and choose a status.</h5>
     <form class="form-control">
       <label for="reimbId">Reimb ID</label>
       <input type="text" id="reimbId" name="reimbId">
@@ -121,6 +135,9 @@
     </form>
     <button class="btn btn-primary" id="updateReimbButton">Update Reimbursement</button>
   </div>
+  <br>
+  <br>
+  <br>
   <!-- ========================================================================= -->
   
   <script src="Reimbursement.js"></script>

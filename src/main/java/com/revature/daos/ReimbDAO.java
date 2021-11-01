@@ -12,4 +12,5 @@ public interface ReimbDAO {
 	boolean updateReimb(Reimb reimb);
 	boolean deleteReimb(Reimb reimb);
 	List<Reimb> findReimByAuthorId(int authorId);
+	List<Reimb> findReimByStatus(String status);
 }

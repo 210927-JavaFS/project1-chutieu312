@@ -40,5 +40,9 @@ public class ReimbService {
 		return ReimbDao.findReimByAuthorId(authorId);
 		
 	}
+
+	public List<Reimb> getReimbByStatus(String status) {
+		return ReimbDao.findReimByStatus(status); 
+	}
 	
 }

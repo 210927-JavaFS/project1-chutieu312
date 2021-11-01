@@ -52,6 +52,20 @@ public class ReimbController implements Controller  {
 			ctx.status(406);
 		}
 	};
+	
+	public Handler getReimbByStatus = (ctx) -> {
+		try {
+			String status = ctx.pathParam("status");
+			List<Reimb> list = reimbService.getReimbByStatus(status);
+			System.out.println("list in getReimbByStatus: "+list);
+			ctx.json(list);
+			ctx.status(200);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			ctx.status(406);
+		}
+	};
+
 
 	public Handler addReimb = (ctx) -> {
 		Reimb reimb = ctx.bodyAsClass(Reimb.class);
@@ -102,6 +116,7 @@ public class ReimbController implements Controller  {
 		app.get("/reimbs", this.getAllReimbs);
 		app.get("/reimbs/:reimb", this.getReimb);
 		app.get("/reimbs/authors/:authorId", this.getReimbByAuthor);
+		app.get("/reimbs/status/:status", this.getReimbByStatus);
 		app.post("/reimbs", this.addReimb);
 		app.put("/reimbs", this.updateReimb);
 		app.delete("/reimbs/:reimb", this.deleteReimb);

@@ -13,6 +13,7 @@ let addReimbRequestButton = document.createElement("button");
 let addReimbButton = document.getElementById('addReimbButton');
 let updateReimbButton = document.getElementById('updateReimbButton');
 let loginButton = document.getElementById('loginButton');
+let filterReimbButton = document.getElementById('filterReimbButton');
 
 let logoutButton = document.createElement('button');
 let findReimbButton = document.createElement('button');
@@ -107,8 +108,8 @@ function employeeMenu(user){
   buttonRow.appendChild(viewPastTicketsButton);
   buttonRow.appendChild(addReimbRequestButton);
   buttonRow.appendChild(logoutButton);
-
   document.getElementById("buttonRow").style.display = 'block';
+
   
   viewPastTicketsButton.onclick =  async function (){
     let response = await fetch(URL+"reimbs/authors/"+user.userId.toString(), {
@@ -138,19 +139,32 @@ function displayApproveDenyReimb(){
 
 //===============================================================================
 
-// async function displayPastTickets(user){
-//   console.log("displayPastTickets run");
-//   let response = await fetch(URL+"reimbs/"+user.userId.toString(), {
-//     credentials:"include"
-//   });
+function findReimbByStatus(){
+  console.log("findReimbByStatus run");
+  document.getElementById("filterReimb").style.display = 'block';
+  //let filterStatus = document.getElementById("filterStatus").value;
 
-//   if (response.status===200) {
-//     let data = await response.json();
-//     console.log("data in displayPastTickets:  "+data);
-//     populateReimbTable(data);
-//   }
+  //filterReimbButton.onclick = filterReimb(filterStatus);
+}
+//===============================================================================
 
-// }
+filterReimbButton.onclick = filterReimb;
+
+async function filterReimb(){
+
+  let filterStatus = document.getElementById("filterStatus").value;
+
+  let response = await fetch(URL+"reimbs/status/"+filterStatus,{
+    credentials:"include"
+  });
+  if (response.status===200) {
+          let data = await response.json();
+    console.log(data);
+    populateReimbTable(data);
+    document.getElementById("reimb-table").style.display = 'block';
+  }
+
+}
 
 //===============================================================================
 
@@ -169,9 +183,7 @@ function financeMenu(user){
 
 //===============================================================================
 
-function findReimbByStatus(){
-  console.log("findReimbByStatus run");
-}
+
 //===============================================================================
 
 
@@ -192,6 +204,7 @@ async function logout(){
     document.getElementById("updateReimb").style.display = 'none';
     document.getElementById("user-table").style.display = 'none';
     document.getElementById("reimb-table").style.display = 'none';
+    document.getElementById("filterReimb").style.display = 'none';
     // document.getElementById("user-table").innerHTML='';
     // document.getElementById("reimb-table").innerHTML='';
     // document.getElementById("addReimb").innerHTML='';
@@ -202,9 +215,7 @@ async function logout(){
       first.remove();
       first = buttonRow.firstElementChild
     }
-    if(loginFail){
-      document.getElementsByClassName("formClass")[0].removeChild(loginFail);
-    }
+
     
     //para=null;
   }
@@ -218,6 +229,7 @@ async function getUsers(){
   if(response.status === 200){
     let data = await response.json();
     populateUsersTable(data);
+    document.getElementById("user-table").style.display = 'block';
   }else{
     console.log("The Users cannot be accessed");
   }
@@ -234,7 +246,8 @@ function populateUsersTable(data){
 
     for(let cell in user){
       let td = document.createElement("td");
-      td.innerText=user[cell];
+      if (cell!="userRole") td.innerText=user[cell];
+      else if (user[cell]) td.innerText=`${user[cell].role}`;
       row.appendChild(td);
     }
     tbody.appendChild(row);
@@ -247,6 +260,7 @@ async function getReimbs(){
   if(response.status===200){
     let data = await response.json();
     populateReimbTable(data);
+    document.getElementById("reimb-table").style.display = 'block';
   }else{
     console.log("Reimbs not available.");
   }
@@ -256,14 +270,28 @@ async function getReimbs(){
 function populateReimbTable(data){
   let tbody = document.getElementById("reimbBody");
 
-  tbody.innerHTML="";
+  //tbody.innerHTML="";
   console.log(data);
+
+  while(tbody.rows.length > 0) {
+    tbody.deleteRow(0);
+  }
 
   for(let reimb of data){
     let row = document.createElement("tr");
     for(let cell in reimb){
       let td = document.createElement("td");
-      td.innerText = reimb[cell];
+      if (cell!="author" && cell!="resolver" && cell!="reimbStatus" && cell!="reimbType") {
+        td.innerText = reimb[cell];
+      }
+      if (cell=="author") td.innerText = `${reimb[cell].userRole.role} : ${reimb[cell].userId}`;
+      if (cell == "resolver" && reimb[cell]!=null) td.innerText = `${reimb[cell].userRole.role} : ${reimb[cell].userId}`;
+      if (cell=="reimbStatus") td.innerText = `${reimb[cell].status}`;
+      if (cell=="reimbType") td.innerText = `${reimb[cell].type}`;
+      if(cell == "submittedlDate") td.innerText = `${new Date(reimb[cell])}`;
+      if(cell == "resolvedlDate")
+        if (reimb[cell]!=null) td.innerText = `${new Date(reimb[cell])}`;
+
       row.appendChild(td);
     }
     tbody.appendChild(row);
@@ -360,3 +388,4 @@ async function updateReimb(){
   }
 
 }
+

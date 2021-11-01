@@ -8,11 +8,14 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.revature.models.Reimb;
+import com.revature.services.ReimbStatusDAO;
 import com.revature.utils.HibernateUtil;
 
 public class ReimbDAOImpl implements ReimbDAO {
 	
 	private UserDAO userDAO = new UserDAOImpl();
+	
+	private ReimbStatusDAO reimbStatusDAO = new ReimbStatusDAO();
 
 	@Override
 	public List<Reimb> findAllReimbs() {
@@ -79,6 +82,16 @@ public class ReimbDAOImpl implements ReimbDAO {
 		String hql = ("FROM Reimb r WHERE r.author = :author");
 		Query<Reimb> query = session.createQuery(hql);
 		query.setParameter("author",userDAO.findById(authorId));
+		List<Reimb> list = query.list();
+		return list;
+	}
+
+	@Override
+	public List<Reimb> findReimByStatus(String status) {
+		Session session = HibernateUtil.getSession();
+		String hql = ("FROM Reimb r WHERE r.reimbStatus = :reimbStatus");
+		Query<Reimb> query = session.createQuery(hql);
+		query.setParameter("reimbStatus",reimbStatusDAO.findByStatus(status));
 		List<Reimb> list = query.list();
 		return list;
 	}
