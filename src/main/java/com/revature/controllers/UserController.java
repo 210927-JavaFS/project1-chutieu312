@@ -34,8 +34,8 @@ public class UserController implements Controller {
 	};
 
 	public Handler addUser = (ctx)->{
-		User User = ctx.bodyAsClass(User.class);
-		if(userService.addUser(User)) {
+		User user = ctx.bodyAsClass(User.class);
+		if(userService.addUser(user)) {
 			ctx.status(201);
 		}else {
 			ctx.status(400);
@@ -43,8 +43,8 @@ public class UserController implements Controller {
 	};
 
 	public Handler updateUser = (ctx)->{
-		User User = ctx.bodyAsClass(User.class);
-		if(userService.updateUser(User)) {
+		User user = ctx.bodyAsClass(User.class);
+		if(userService.updateUser(user)) {
 			ctx.status(200);
 		}else {
 			ctx.status(400);

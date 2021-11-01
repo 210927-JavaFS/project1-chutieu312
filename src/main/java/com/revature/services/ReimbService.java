@@ -35,5 +35,10 @@ public class ReimbService {
 		Reimb reimb = getReimb(reimbId);
 		return ReimbDao.deleteReimb(reimb);
 	}
+
+	public List<Reimb> getReimbByAuthor(int authorId) {
+		return ReimbDao.findReimByAuthorId(authorId);
+		
+	}
 	
 }

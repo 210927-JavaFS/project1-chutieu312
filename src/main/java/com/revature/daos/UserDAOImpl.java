@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
@@ -20,7 +21,12 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User findByUsername(String username) {
 		Session session = HibernateUtil.getSession();
-		return session.get(User.class, username);
+
+		String hql = "FROM User u WHERE u.userName = :username";
+		Query<User> query = session.createQuery(hql);
+		query.setParameter("username",username);
+		List<User> results = query.list();
+		return results.get(0);
 	}
 	
 	@Override

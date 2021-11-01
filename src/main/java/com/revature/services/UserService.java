@@ -8,14 +8,14 @@ import com.revature.daos.UserDAOImpl;
 
 public class UserService {
 
-	private UserDAO UserDao = new UserDAOImpl();
+	private UserDAO userDao = new UserDAOImpl();
 
 	public List<User> getAllUsers() {
-		return UserDao.findAllUsers();
+		return userDao.findAllUsers();
 	}
 
 	public User getUser(int id) {
-		User user = UserDao.findById(id);
+		User user = userDao.findById(id);
 		if (user != null) {
 			return user;
 		}else {
@@ -24,16 +24,16 @@ public class UserService {
 	}
 	
 	public boolean addUser(User user) {
-		return UserDao.addUser(user);
+		return userDao.addUser(user);
 	}
 	
 	public boolean updateUser(User user) {
-		return UserDao.updateUser(user);
+		return userDao.updateUser(user);
 	}
 	
 	public boolean deleteUser(int id) {
 		User user = getUser(id);
-		return UserDao.deleteUser(user);
+		return userDao.deleteUser(user);
 	}
 	
 }

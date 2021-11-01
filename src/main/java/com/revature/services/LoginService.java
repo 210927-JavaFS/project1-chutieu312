@@ -1,20 +1,32 @@
 package com.revature.services;
 
+import com.revature.Encrypt;
+import com.revature.daos.UserDAO;
+import com.revature.daos.UserDAOImpl;
+import com.revature.models.User;
 import com.revature.models.UserDTO;
-import com.revature.models.UserLogin;
-
+import java.util.Date;
 
 public class LoginService {
 
-	private UserLoginDAO userLoginDAO = new UserLoginDAO();
+	private UserDAO userDao = new UserDAOImpl();
 	
-	public boolean login(UserDTO userDto) {
-		UserLogin userLogin = userLoginDAO.getByUsername(userDto.username);
+	public User login(UserDTO userDto) {
+		User user = userDao.findByUsername(userDto.username);
 		
-		if(userLogin!=null && (userDto.password.hashCode()==userLogin.getPassword())) {
-			return true;
+		if(user.equals(null)) {
+			System.out.println("Invalid username.");
+			return null;
 		}
-		
-		return false;
+		else if(!Encrypt.encodePassword(userDto.password).equals(user.getPassWord())) {
+				System.out.println("Invalid password.");
+				return null;
+			}
+		else {
+			System.out.println("Valid login "+new Date());
+			
+			
+			return user;
+		}
 	}
 }
