@@ -9,6 +9,7 @@ import com.revature.daos.ReimbDAOImpl;
 public class ReimbService {
 
 	private ReimbDAO ReimbDao = new ReimbDAOImpl();
+	
 
 	public List<Reimb> getAllReimbs() {
 		return ReimbDao.findAllReimbs();

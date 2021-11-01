@@ -9,7 +9,7 @@ public class LogoutController implements Controller {
 	
 	HttpSession httpSession;
 
-	private Handler logoutAttempt = (ctx) -> {
+	public Handler logoutAttempt = (ctx) -> {
 		System.out.println("Before invalidate");
 		System.out.println("httpSession.getAtribute: "+ ctx.req.getSession().getAttribute("User"));	
 		ctx.req.getSession().invalidate();// invalidates any open session tracking the client.

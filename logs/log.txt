@@ -1,0 +1,67 @@
+06:34:13.414 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @595ms to org.eclipse.jetty.util.log.Slf4jLog
+06:34:13.482 [] [main] INFO  io.javalin.Javalin - Static file handler added:
+    {urlPathPrefix: "/", path: "/static", location: Location.CLASSPATH}
+    Resolved path: 'file:///C:/Users/1/Desktop/Revature/project1-chutieu312/target/classes/static/'
+06:34:13.603 [] [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.0.Final
+06:34:14.057 [] [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+06:34:14.319 [] [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+06:34:14.328 [] [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://javafs-210927.c0xvmvzml4y6.us-east-2.rds.amazonaws.com:5432/demo]
+06:34:14.328 [] [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=postgres}
+06:34:14.329 [] [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+06:34:14.332 [] [main] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+06:34:15.053 [] [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+06:34:15.913 [] [main] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7e8279e5] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+06:34:16.299 [] [main] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1859ffda] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+06:34:16.792 [] [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+06:34:17.627 [] [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+06:34:17.633 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+06:34:17.785 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:8081/
+06:34:17.785 [] [main] INFO  io.javalin.Javalin - Javalin started in 157ms \o/
+06:34:23.630 [] [qtp1472031375-24] INFO  c.r.controllers.LoginController - User login successfully: User [userId=1, userName=a, passWord=0cc175b9c0f1b6a831c399e269772661, firstName=Henry, lastName=Nguyen, email=@a.com, userRole=UserRole [roleId=1, role=Employee]]
+06:34:30.323 [] [qtp1472031375-23] INFO  c.r.controllers.ReimbController - In Handler addReimb
+06:34:30.428 [] [qtp1472031375-23] INFO  c.r.controllers.ReimbController - add Reimb successfully.
+06:34:33.086 [] [qtp1472031375-24] INFO  c.r.controllers.ReimbController - In Handler addReimb
+06:34:33.230 [] [qtp1472031375-24] INFO  c.r.controllers.ReimbController - add Reimb successfully.
+06:34:35.692 [] [qtp1472031375-23] INFO  c.r.controllers.ReimbController - In Handler addReimb
+06:34:35.836 [] [qtp1472031375-23] INFO  c.r.controllers.ReimbController - add Reimb successfully.
+06:34:38.401 [] [qtp1472031375-24] INFO  c.r.controllers.ReimbController - In Handler addReimb
+06:34:38.546 [] [qtp1472031375-24] INFO  c.r.controllers.ReimbController - add Reimb successfully.
+06:34:40.073 [] [qtp1472031375-23] INFO  c.r.controllers.ReimbController - In Handler getReimbByAuthor
+06:35:46.906 [] [qtp1472031375-20] INFO  c.r.controllers.LoginController - User login successfully: User [userId=5, userName=e, passWord=e1671797c52e15f763380b45e841ec32, firstName=Can, lastName=Nguyen, email=@e.com, userRole=UserRole [roleId=2, role=Finance Manager]]
+06:35:49.850 [] [qtp1472031375-23] INFO  c.r.controllers.UserController - In Handler getAllUsers
+06:35:54.819 [] [qtp1472031375-19] INFO  c.r.controllers.ReimbController - In Handler getAllReimbs
+07:17:59.381 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @640ms to org.eclipse.jetty.util.log.Slf4jLog
+07:17:59.442 [] [main] INFO  io.javalin.Javalin - Static file handler added:
+    {urlPathPrefix: "/", path: "/static", location: Location.CLASSPATH}
+    Resolved path: 'file:///C:/Users/1/Desktop/Revature/project1-chutieu312/target/classes/static/'
+07:17:59.562 [] [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.0.Final
+07:18:00.013 [] [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:18:00.307 [] [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+07:18:00.314 [] [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://javafs-210927.c0xvmvzml4y6.us-east-2.rds.amazonaws.com:5432/demo]
+07:18:00.315 [] [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=postgres}
+07:18:00.315 [] [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+07:18:00.319 [] [main] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+07:18:01.083 [] [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+07:18:01.865 [] [main] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7e8279e5] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+07:18:02.263 [] [main] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1859ffda] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+07:18:02.767 [] [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:18:03.699 [] [main] INFO  io.javalin.Javalin - 
+           __                      __ _
+          / /____ _ _   __ ____ _ / /(_)____
+     __  / // __ `/| | / // __ `// // // __ \
+    / /_/ // /_/ / | |/ // /_/ // // // / / /
+    \____/ \__,_/  |___/ \__,_//_//_//_/ /_/
+
+        https://javalin.io/documentation
+
+07:18:03.705 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+07:18:03.850 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:8081/
+07:18:03.850 [] [main] INFO  io.javalin.Javalin - Javalin started in 150ms \o/

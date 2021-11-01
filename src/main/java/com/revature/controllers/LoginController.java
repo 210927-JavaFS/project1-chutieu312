@@ -2,9 +2,13 @@ package com.revature.controllers;
 
 import com.revature.models.User;
 
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.revature.models.UserDTO;
+
 import com.revature.services.LoginService;
 
 import io.javalin.Javalin;
@@ -12,6 +16,7 @@ import io.javalin.http.Handler;
 
 public class LoginController implements Controller {
 
+	public static Logger log = LoggerFactory.getLogger(LoginController.class);
 	private LoginService loginService = new LoginService();
 	//HttpSession httpSession;
 
@@ -23,6 +28,7 @@ public class LoginController implements Controller {
 		User user = loginService.login(userDto);
 		
 		if(user!=null) {
+			log.info("User login successfully: "+user);
 			//If someone logs in I will create a session
 			//httpSession = ctx.req.getSession(); //This will create a session for us to track the client that logged in. 
 			//HttpServletRequest -> 
