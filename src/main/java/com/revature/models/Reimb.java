@@ -89,6 +89,21 @@ public class Reimb {
 		this.reimbType = reimbType;
 	}
 
+	
+	// This use for create DB in bootstrap
+	public Reimb(int reimbId, double amount, Date submittedlDate, String description, String receipt, User author,
+			ReimbStatus reimbStatus, ReimbType reimbType) {
+		super();
+		this.reimbId = reimbId;
+		this.amount = amount;
+		this.submittedlDate = submittedlDate;
+		this.description = description;
+		this.receipt = receipt;
+		this.author = author;
+		this.reimbStatus = reimbStatus;
+		this.reimbType = reimbType;
+	}
+
 
 
 	public Reimb() {
