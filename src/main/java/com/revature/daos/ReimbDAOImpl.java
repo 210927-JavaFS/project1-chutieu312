@@ -20,13 +20,18 @@ public class ReimbDAOImpl implements ReimbDAO {
 	@Override
 	public List<Reimb> findAllReimbs() {
 		Session session = HibernateUtil.getSession();
-		return session.createQuery("FROM Reimb").list();
+		List<Reimb> list = session.createQuery("FROM Reimb").list();
+		HibernateUtil.closeSession();
+		return list;
 	}
 
 	@Override
 	public Reimb findByReimbId(int reimbId) {
 		Session session = HibernateUtil.getSession();
-		return session.get(Reimb.class, reimbId);
+		Reimb reimb = session.get(Reimb.class, reimbId);
+		//System.out.println("tao neeeeeeeeeeee:       "+reimb);
+		HibernateUtil.closeSession();
+		return reimb;
 	}
 
 	@Override

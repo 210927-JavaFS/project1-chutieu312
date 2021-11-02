@@ -17,6 +17,7 @@ public class ReimbService {
 	public Reimb getReimb(int reimbId) {
 		Reimb reimb = ReimbDao.findByReimbId(reimbId);
 		if (reimb != null) {
+			//System.out.println("tao neeeeeeeeeeee:       "+reimb);
 			return reimb;
 		}else {
 			return new Reimb();

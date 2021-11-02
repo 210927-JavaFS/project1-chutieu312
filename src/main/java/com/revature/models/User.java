@@ -29,7 +29,7 @@ public class User {
 	@Column(unique=true)
 	private String email;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	@JoinColumn(name="userRole")
 	private UserRole userRole;
 	
