@@ -9,9 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
-import java.util.List;
+
 
 @Entity
 public class User {
@@ -30,9 +29,9 @@ public class User {
 	@Column(unique=true)
 	private String email;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="roleId")	
-	private int roleId;
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+	@JoinColumn(name="userRole")
+	private UserRole userRole;
 	
 //	@OneToMany(mappedBy="authorId",orphanRemoval = true,
 //	fetch=FetchType.EAGER)
@@ -41,9 +40,8 @@ public class User {
 //	fetch=FetchType.EAGER)
 //private List<Reimbursement> managerReimbursements;
 
-
 	public User(int userId, String userName, String passWord, String firstName, String lastName, String email,
-			int role) {
+			UserRole userRole) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -51,17 +49,17 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.roleId = role;
+		this.userRole = userRole;
 	}
 
-	public User(String userName, String passWord, String firstName, String lastName, String email, int roleId) {
+	public User(String userName, String passWord, String firstName, String lastName, String email, UserRole userRole) {
 		super();
 		this.userName = userName;
 		this.passWord = passWord;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.roleId = userId;
+		this.userRole = userRole;
 	}
 
 	public User() {
@@ -117,12 +115,12 @@ public class User {
 		this.email = email;
 	}
 
-	public int getRoleId() {
-		return roleId;
+	public UserRole getUserRole() {
+		return userRole;
 	}
 
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
 	}
 
 	@Override
@@ -133,9 +131,9 @@ public class User {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((passWord == null) ? 0 : passWord.hashCode());
-		result = prime * result + roleId;
 		result = prime * result + userId;
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+		result = prime * result + ((userRole == null) ? 0 : userRole.hashCode());
 		return result;
 	}
 
@@ -168,8 +166,6 @@ public class User {
 				return false;
 		} else if (!passWord.equals(other.passWord))
 			return false;
-		if (roleId != other.roleId)
-			return false;
 		if (userId != other.userId)
 			return false;
 		if (userName == null) {
@@ -177,16 +173,22 @@ public class User {
 				return false;
 		} else if (!userName.equals(other.userName))
 			return false;
+		if (userRole == null) {
+			if (other.userRole != null)
+				return false;
+		} else if (!userRole.equals(other.userRole))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", passWord=" + passWord + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", email=" + email + ", roleId=" + roleId + "]";
+				+ firstName + ", lastName=" + lastName + ", email=" + email + ", userRole=" + userRole + "]";
 	}
 	
 	
+
 	
 	
 }

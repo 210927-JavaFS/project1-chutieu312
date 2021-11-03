@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- ========================================================================= -->
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,14 @@
   <title>Employee Reimbursement System</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
+<!-- ========================================================================= -->
+
 <body class="container-fluid">
+  <!-- Welcome page-->
+  <br>
+  <h2 style="color: darkgoldenrod">Welcome to Employee Reimbursement System.</h2>
+  <br>
+  <!-- ========================================================================= -->
   <div class="formClass">
     <form class="form-control">
       <label for="username">Username</label>
@@ -17,80 +25,122 @@
     </form>
     <button class="btn btn-danger" id="loginButton">Login</button>
   </div>
-  <div class="row" id="buttonRow">
+  <br>
+  <br>
+  <!-- ========================================================================= -->
+  <!-- Welcome <p> and Menu Options-->
 
+  <div class="row" id="buttonRow" style="display: none">
+    <!-- This place for menu options button of both user and reimb -->
+  </div>
+  <br>
+  <br>
+  <!-- ========================================================================= -->
+  <!-- Display Users-->
+  <div id="user-table" style="display: none">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-sm-1">User ID</th>
+          <th class="col-sm-2">Username</th>
+          <th class="col-sm-2">Password</th>
+          <th class="col-sm-1">First Name</th>
+          <th class="col-sm-1">Last Name</th>
+          <th class="col-sm-2">Email</th>
+          <th class="col-sm-6">Role ID</th>
+        </tr>
+      </thead>
+      <tbody id="userBody">
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <!-- ========================================================================= -->
+  <!-- Display Reimb-->
+
+  <div id="reimb-table" style="display: none">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-sm-1">Reimb ID</th>
+          <th class="col-sm-1">Amount</th>
+          <th class="col-sm-2">Submitted</th>
+          <th class="col-sm-2">Resolved</th>
+          <th class="col-sm-1">Description</th>
+          <th class="col-sm-1">Receipt</th>
+          <th class="col-sm-1">Author</th>
+          <th class="col-sm-1">Resolver</th>
+          <th class="col-sm-1">Status ID</th>
+          <th class="col-sm-1">Type ID</th>
+        </tr>
+      </thead>
+      <tbody id="reimbBody">
+      </tbody>
+    </table>
+  </div>
+  <br>
+  
+  <!-- ========================================================================= -->
+  <div id="addReimb" style="display: none"> 
+    <h5 style="color: darkorchid">Please enter your new reimbursement information.</h5>
+    <form class="form-control">
+      <label for="reimbAmount">Reimb Amount</label>
+      <input type="text" id="reimbAmount" name="reimbAmount">
+      
+      <label for="reimbDescription">Description</label>
+      <input type="text" id="reimbDescription" name="reimbDescription">
+      
+      <label for="reimbReceipt">Receipt</label>
+      <input type="text" id="reimbReceipt" name="reimbReceipt">
+      
+      <label for="reimbType">Choose a Type: </label>
+      <select name="reimbType" id="reimbType">
+        <option value="Lodging">Lodging</option>
+        <option value="Travel">Travel</option>
+        <option value="Food">Food</option>
+        <option value="Other">Other</option>
+      </select>
+    </form>
+    <button class="btn btn-primary" id="addReimbButton">Add Reimbursement</button>
+  </div>
+  <!-- ========================================================================= -->
+  <br>
+  <div id="filterReimb" style="display: none">
+    <h5 style="color: darkorchid">Filter: Please choose a status.</h5>
+    <form class="form-control">
+      <label for="filterStatus">Choose a Status: </label>
+      <select name="filterStatus" id="filterStatus">
+        <option value="Pending">Pending</option>
+        <option value="Approved">Approved</option>
+        <option value="Denied">Denied</option>
+      </select>
+    </form>
+    <button class="btn btn-primary" id="filterReimbButton">Filter</button>
   </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="col-sm-1">User ID</th>
-        <th class="col-sm-2">Username</th>
-        <th class="col-sm-2">Password</th>
-        <th class="col-sm-1">First Name</th>
-        <th class="col-sm-1">Last Name</th>
-        <th class="col-sm-2">Email</th>
-        <th class="col-sm-6">Role ID</th>
-      </tr>
-    </thead>
-    <tbody id="userBody">
-    </tbody>
-  </table>
+  <!-- ========================================================================= -->
+  <br>
+  <div id="updateReimb" style="display: none">
+    <h5 style="color: darkorchid">Approve/Deny: Please enter Reimb ID and choose a status.</h5>
+    <form class="form-control">
+      <label for="reimbId">Reimb ID</label>
+      <input type="text" id="reimbId" name="reimbId">
+      
+      <label for="reimbStatus">Choose a Status: </label>
+      <select name="reimbStatus" id="reimbStatus">
+        <option value="Approved">Approved</option>
+        <option value="Denied">Denied</option>
+      </select>
+    </form>
+    <button class="btn btn-primary" id="updateReimbButton">Update Reimbursement</button>
+  </div>
   <br>
   <br>
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="col-sm-2">Reimb ID</th>
-        <th class="col-sm-2">Amount</th>
-        <th class="col-sm-2">Submitted</th>
-        <th class="col-sm-2">Resolved</th>
-        <th class="col-sm-2">Description</th>
-        <th class="col-sm-1">Receipt</th>
-        <th class="col-sm-1">Author</th>
-        <th class="col-sm-1">Resolver</th>
-        <th class="col-sm-1">Status ID</th>
-        <th class="col-sm-1">Type ID</th>
-      </tr>
-    </thead>
-    <tbody id="reimbBody">
-    </tbody>
-  </table>
-
   <br>
-  <br>
-
-  <form class="form-control">
-    <label for="reimbAmount">Reimb Amount</label>
-    <input type="text" id="reimbAmount" name="reimbAmount">
-    
-    <label for="reimbSubmitted">Submitted</label>
-    <input type="text" id="reimbSubmitted" name="reimbSubmitted">
-    
-    <label for="reimbResolved">Resolved</label>
-    <input type="text" id="reimbResolved" name="reimbResolved">
-    
-    <label for="reimbDescription">Description</label>
-    <input type="text" id="reimbDescription" name="reimbDescription">
-    
-    <label for="reimbReceipt">Receipt</label>
-    <input type="text" id="reimbReceipt" name="reimbReceipt">
-    
-    <label for="reimbAuthor">Author</label>
-    <input type="text" id="reimbAuthor" name="reimbAuthor">
-    
-    <label for="reimbResolver">Resolver</label>
-    <input type="text" id="reimbResolver" name="reimbResolver">
-    
-    <label for="reimbStatusID">Status ID</label>
-    <input type="text" id="reimbStatusID" name="reimbStatusID">
-    
-    <label for="reimbTypeID">Type ID</label>
-    <input type="text" id="reimbTypeID" name="reimbTypeID">
-    
-  </form>
-  <button class="btn btn-primary" id="addReimbButton">Add Reimbursement</button>
-
+  <!-- ========================================================================= -->
+  
   <script src="Reimbursement.js"></script>
+
 </body>
 </html>

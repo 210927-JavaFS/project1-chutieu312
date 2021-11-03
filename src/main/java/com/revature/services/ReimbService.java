@@ -15,25 +15,35 @@ public class ReimbService {
 	}
 
 	public Reimb getReimb(int reimbId) {
-		Reimb Reimb = ReimbDao.findByReimbId(reimbId);
-		if (Reimb != null) {
-			return Reimb;
+		Reimb reimb = ReimbDao.findByReimbId(reimbId);
+		if (reimb != null) {
+			//System.out.println("tao neeeeeeeeeeee:       "+reimb);
+			return reimb;
 		}else {
 			return new Reimb();
 		}
 	}
 	
-	public boolean addReimb(Reimb Reimb) {
-		return ReimbDao.addReimb(Reimb);
+	public boolean addReimb(Reimb reimb) {
+		return ReimbDao.addReimb(reimb);
 	}
 	
-	public boolean updateReimb(Reimb Reimb) {
-		return ReimbDao.updateReimb(Reimb);
+	public boolean updateReimb(Reimb reimb) {
+		return ReimbDao.updateReimb(reimb);
 	}
 	
 	public boolean deleteReimb(int reimbId) {
-		Reimb Reimb = getReimb(reimbId);
-		return ReimbDao.deleteReimb(Reimb);
+		Reimb reimb = getReimb(reimbId);
+		return ReimbDao.deleteReimb(reimb);
+	}
+
+	public List<Reimb> getReimbByAuthor(int authorId) {
+		return ReimbDao.findReimByAuthorId(authorId);
+		
+	}
+
+	public List<Reimb> getReimbByStatus(String status) {
+		return ReimbDao.findReimByStatus(status); 
 	}
 	
 }

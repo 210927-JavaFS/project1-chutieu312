@@ -8,32 +8,32 @@ import com.revature.daos.UserDAOImpl;
 
 public class UserService {
 
-	private UserDAO UserDao = new UserDAOImpl();
+	private UserDAO userDao = new UserDAOImpl();
 
 	public List<User> getAllUsers() {
-		return UserDao.findAllUsers();
+		return userDao.findAllUsers();
 	}
 
 	public User getUser(int id) {
-		User User = UserDao.findById(id);
-		if (User != null) {
-			return User;
+		User user = userDao.findById(id);
+		if (user != null) {
+			return user;
 		}else {
 			return new User();
 		}
 	}
 	
-	public boolean addUser(User User) {
-		return UserDao.addUser(User);
+	public boolean addUser(User user) {
+		return userDao.addUser(user);
 	}
 	
-	public boolean updateUser(User User) {
-		return UserDao.updateUser(User);
+	public boolean updateUser(User user) {
+		return userDao.updateUser(user);
 	}
 	
 	public boolean deleteUser(int id) {
-		User User = getUser(id);
-		return UserDao.deleteUser(User);
+		User user = getUser(id);
+		return userDao.deleteUser(user);
 	}
 	
 }

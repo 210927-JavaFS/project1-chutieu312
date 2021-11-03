@@ -8,3 +8,33 @@
     "typeId": 1
 
 }
+
+{
+    "id": 1,
+    "superheroName": "Hulk",
+    "firstName": "Bruce",
+    "lastName": "Banner",
+    "powerLevel": 11111,
+    "home": {
+        "name": "bunker",
+        "streetNumber": "89991",
+        "streetName": "nowhere",
+        "city": "washington",
+        "region": "dc",
+        "zip": "20105",
+        "country": "usa"
+        }
+}
+
+{
+    "userName": "a",
+    "passWord": "a",
+    "firstName": "Henry",
+    "lastName": "Nguyen",
+    "email": "a",
+    "userRole":{
+        "roleId":1,
+        "role":"Employee"
+    }
+
+}
