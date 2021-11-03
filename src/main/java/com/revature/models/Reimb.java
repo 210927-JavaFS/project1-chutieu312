@@ -89,9 +89,6 @@ public class Reimb {
 	}
 
 	
-<<<<<<< HEAD
-	
-=======
 	// This use for create DB in bootstrap
 	public Reimb(int reimbId, double amount, Date submittedlDate, String description, String receipt, User author,
 			ReimbStatus reimbStatus, ReimbType reimbType) {
@@ -107,19 +104,9 @@ public class Reimb {
 	}
 
 
-
->>>>>>> develop1
 	public Reimb() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-public Reimb(double amount, String description, String receipt, int authorId, int typeId) {
-		super();
-		this.amount = amount;
-		this.description = description;
-		this.receipt = receipt;
-		this.authorId = authorId;
-		this.typeId = typeId;
 	}
 
 
