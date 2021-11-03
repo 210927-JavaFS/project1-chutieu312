@@ -117,10 +117,12 @@ public class ServicesTests {
 		assertEquals(6,list.size());
 	}
 	
-//	@Test
-//	public void testGetReimbById() {
-//		assertEquals(reimb1,reimbService.getReimb(7));
-//	}
+	@Test
+	public void testGetReimbById() {
+		reimb2 = reimbService.getReimb(6);
+		assertNotNull(reimb2);
+		assertEquals(6,reimb2.getReimbId());
+	}
 	
 	@Test
 	public void testGetReimbByStatus() {
@@ -130,8 +132,9 @@ public class ServicesTests {
 //	
 	@Test
 	public void testGetReimbByAuthor() {
-		List<Reimb> list = reimbService.getReimbByAuthor(4);
+		List<Reimb> list = reimbService.getReimbByAuthor(1);
 		assertNotNull(list);
+		assertEquals(2,list.size());
 	}
 //	
 	@Test
